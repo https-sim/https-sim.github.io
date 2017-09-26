@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Meu Site Precisa de HTTPS?</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta property="og:locale" content="pt-br">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Meu Site Precisa de HTTPS?">
+		<meta property="og:description" content="Find out if your site needs HTTPS.">
+		<meta property="og:url" content="/">
+		<meta property="og:site_name" content="Caddy">
+		<meta property="article:publisher" content="https://meusiteprecisadehttps.com.br">
+		<meta property="article:tag" content="https">
+		<meta property="article:tag" content="infosec">
+		<meta property="article:tag" content="tls">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Meu Site Precisa de HTTPS?">
+		<meta name="twitter:description" content="Descubra se seu site precisa de HTTPS.">
+		<meta name="twitter:creator" content="@mholt6">
+		<meta itemprop="name" content="Meu Site Precisa de HTTPS?">
+		<meta itemprop="description" content="Descubra se seu site precisa de HTTPS">
+		<meta property="og:translator" content="@jean_jcl">
+
+		<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+		<script src="./files/script.js"></script>
+		<link rel="stylesheet" href="./files/css">
+		<link rel="stylesheet" href="./files/style.css">
+	</head>
+	<body>
+		<div class="header"><a href="https://DoesMySiteNeedHTTPS.com">English</a></div>
+		<h1>
+			SIM
+			<div class="subtitle">
+				Seu site precisa de HTTPS.
+			</div>
+		</h1>
+
+		<h2>"Mas meu site não possui formulários nem coleta informações dos usuários"</h2>
+		<p>
+				Não importa. HTTPS protege mais do que dados de formulário! HTTPS mantém URLs, headers, e o conteúdo de todas as páginas transmitidas <b>confidencial</b>.
+		</p>
+
+		<h2>"Não há informação sigilosa no meu site"</h2>
+		<p>
+			Não é por que seu site está hospedado em um lugar seguro que significa que ele não vai viajar por cabos e switches controladas por sabe-se-lá quantas entidades corporativas/estatais. Você realmente quer alguém injetando scripts, imagens ou <a href="https://justinsomnia.org/2012/04/hotel-wifi-javascript-injection/">propaganda</a> em suas páginas? Ou usar seu site para atacar outros sites? Isso <a href="https://gist.github.com/ryankearney/4146814">acontece</a>: em <a href="https://twitter.com/konklone/status/598696478018666496">linhas aéreas</a>(<a href="https://www.theregister.co.uk/AMP/2015/01/06/gogo_ssl/">um monte</a>, <a href="https://twitter.com/troyhunt/status/691166196268417024">sério</a>), <a href="https://citizenlab.org/2015/04/chinas-great-cannon/">na China</a>, e até os <a href="https://gist.github.com/Jarred-Sumner/90362639f96807b8315b">provedores de internet</a> <a href="https://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/">fazem isso</a> (<a href="https://twitter.com/paul_irish/status/871431848957575168">um monte</a>). E HTTPS previne tudo isso. Ele garante <b>integridade de dados</b> e a habilidade de <b>detectar adulteração</b>. Se nós encriptássemos apenas conteúdo sigiloso, então pintaríamos um alvo nessas transmissões. Esconda quais transmissões possuem segredos encriptando todas as transmissões.
+		</p>
+
+		<h2>"O site é HTTP, mas nossos formulários são enviados via HTTPS."</h2>
+		<p>
+			Isso é tão ruim quanto não usar HTTP para início de conversa! Tudo que o invasor teria que fazer é alterar o link ou form action para uma URL em seu próprio servidor. Não há maneiras de detectar isso pois a transmissão ocorreria em HTTP. <b>Encripte TODO o site e redirecione HTTP para HTTPS.</b>
+		</p>
+
+		<h2>"Eu não posso comprar um certificado."</h2>
+		<p>
+			<a href="https://letsencrypt.org/">Eles são de graça.</a>
+		</p>
+
+		<h2>"HTTPS é difícil de configurar e de manter."</h2>
+		<p>
+			Ele funciona muito bem se você usar <a href="https://caddyserver.com/">Caddy</a> como seu web server. Sim, incluindo renovação de certificados. Mas não é obrigatório. Se não usares o Caddy, HTTPS ainda pode ser automatizado utilizando um <a href="https://letsencrypt.org/docs/client-options/">cliente Let’s Encrypt de sua escolha</a>.
+		</p>
+
+		<h2>"Invasores ainda podem impersonar meu site, mesmo se eu usasse HTTPS"</h2>
+		<p>
+			Eles podem tentar, mas enquanto suas chaves privadas continuarem privadas, navegadores irão mostrar alertas se o invasor fornecer certificados diferentes ou certificados TLS inválidos. E se o invasor nem usar HTTPS, os navegadores devem marcar a página do impostor como insegura. Assim, o HTTPS garante <b>autenticidade</b>.
+		</p>
+
+		<h2>"Certificados Domain-Validated(Domínio Validado) não são seguros"</h2>
+		<p>
+			Sim eles são. Só não perca o controle sobre o seu DNS e escolha uma autoridade certificadora <a href="https://letsencrypt.org/">competente</a> (ao invés de <a href="https://www.godaddy.com/garage/godaddy/information-about-ssl-bug/">menos competentes</a> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1311713">ou</a> <a href="https://groups.google.com/a/chromium.org/d/msg/blink-dev/eUAKwjihhBs/rpxMXjZHCQAJ">problemáticas</a>). Não há absolutamente nenhuma diferente na criptografia de um certificado DV comparado ao certificado Extended Validation(Validação Extendida).
+		</p>
+
+		<h2>"Mas as autoridades certificadoras podem fazer mau uso do meu site <… ou qualquer outra reclamação sobre o sistema de autoridades certificadoras>."</h2>
+		<p>
+			Olhe, essa discussão não é sobre o sistema ICP(PKI). É o melhor sistema que temos no momento. Lide com isso e proteja seu site. <a href="https://tools.ietf.org/html/rfc6844">Use Autorização da Autoridade Certificado (CAA)</a> para restringir quais autoridades podem emitir certificados para seu site, então cruze os dedos e espere que transparência e fiscalização funcionem (funcionou até agora).
+		</p>
+
+		<h2>"HTTP não esconde o tamanho do conteúdo, vazando pistas para invasores."</h2>
+		<p>
+			TLS 1.3 e HTTP/2 possuem <a href="https://tlswg.github.io/tls13-spec/#rfc.section.5.4">padding frames</a> para inflar o tamanho da cifra.
+		</p>
+
+		<h2>"HTTPS não esconde o DNS lookup."</h2>
+		<p>
+			É claro que não. DNS != HTTP. Mas isso é realmente um argumento válido para não encriptar a conexão entre seu site e seus visitantes?? (Dica: não.)
+		</p>
+
+		<h2>"HTTPS é lento."</h2>
+		<p>
+			<a href="https://istlsfastyet.com/">Não, não é.</a> Sites com servidores modernos são mais rápidos com HTTPS do que HTTP por causa do HTTP/2.
+		</p>
+
+		<h2>"Sites de phishing usam HTTPS."</h2>
+		<p>
+			... então você não vai?
+		</p>
+
+		<h2>"Nosso site mostra ads por HTTP."</h2>
+		<p>
+			Desculpe, só que não. Não muda o fato de que seu <b>site ainda precisa de HTTPS</b>. Fazer seu site carregar via HTTPS com ads ainda carregando via HTTP vai causar alertas de conteúdo misto, então melhor achar um jeito de dispensar aquela agência de propaganda cujo contrato parecia muito atrativo quando você assinou pela primeira vez, ou convencer sua agência a usar HTTPS antes que você.
+		</p>
+
+		<h2>"Funciona normalmente via HTTP"</h2>
+		<p>
+			Porém era isso <a href="https://arstechnica.com/security/2017/03/firefox-gets-complaint-for-labeling-unencrypted-login-page-insecure/">o que pensava a Oil and Gas Internacional</a>, também. Até os navegadores começarem a mostrar páginas HTTP como inseguras.
+		</p>
+
+		<h2>"Mas proxies TLS quebram as garantias do HTTPS."</h2>
+		<p>
+			Apenas se o computados do usuário final for modificado para confiar no proxy TLS. Isso requer privilégios administrativos (root), então o dono do computador deve permitir isso. Além do mais, <a href="https://jhalderm.com/pub/papers/interception-ndss17.pdf">intercepção de HTTPS</a> <a href="https://caddyserver.com/docs/mitm-detection">geralmente pode ser detectada por web servers</a>.
+		</p>
+
+		<h2>"Pelo menos eu ainda posso servir meu site tanto via HTTP quando HTTPS."</h2>
+		<p>
+			A única razão que você deve abrir a porta 80 no seu servidor é para redirecionar todas as requisições para a porta 443 e então fechar a conexão na porta 80. (Talvez algum dia poderemos eliminar a porta 80 totalmente.)
+		</p>
+
+		<h2>"Meu site é apenas acessado internamente ou via VPN."</h2>
+		<p>
+			O quanto você confia na corporação ou estado que controla a infraestrutura? E nas empresas que produziram o hardware que faz parte de sua rede? <a href="https://www.troyhunt.com/the-importance-of-trust-and-integrity-in-a-vpn-provider-and-how-mysafevpn-blew-it/">E no provedor de VPN</a>?
+		</p>
+
+		<h2>"Nós só temos senhas em hashes."</h2>
+		<p>
+				Muito bom. Agora me diga que você está coletando as senhas via HTTP… está, né?
+		</p>
+
+		<h2>"HTTPS impacta no SEO."</h2>
+		<p>
+			Você está certo—HTTPS melhora o SEO! Trocar URLs do site de forma errada <b>pode</b> impactar nos rankings de pesquisas, mas <a href="https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html">HTTPS na verdade melhora-os</a>. Apenas faça a troca de acordo com o motor de busca para o qual estás otimizando, e tudo vai funcionar normalmente, apenas com alguns efeitos colaterais temporários, no máximo.
+		</p>
+
+		<h2>"É trabalho do navegador manter o usuário seguro."</h2>
+		<p>
+			Verdade, mas é um argumento incompleto. Não é APENAS trabalho do navegador. Navegadores podem deixar o usuário seguro contando que o servirdor providencie credenciais via certificado HTTPS. Como o dono do site, é sua responsabilidade providenciar essas credenciais para seus clientes.
+		</p>
+
+		<h2>— COMO EMBARCAR NO HTTPS —</h2>
+		<p>
+			O jeito mais fácil é pelo <a href="https://letsencrypt.org/">Let’s Encrypt</a> e o servidor web <a href="https://caddyserver.com/">Caddy</a>, que habilita HTTPS para todos os seus sites automaticamente. Você ainda pode utilizar um simples script do client Let’s Encrypt chamado <a href="https://github.com/xenolf/lego">lego</a>, que roda em todas as plataformas.
+		</p>
+		<p>
+			Se você prefere um pouco mais de configuração e integrações com servidores web mais tradicionais, o client <a href="https://certbot.eff.org/">Certbot</a>, da EFF, vai servir bem.
+		</p>
+		<p>
+			Há muitas outras formas de ter seu site em HTTPS sem muito esforço. <a href="https://dassur.ma/things/h2setup/">Das Surma tem um guia para vários web servers diferentes</a>, e <a href="https://www.cloudflare.com/">CDNs como o Cloudflare</a> podem fazer seu site estar disponível via HTTPS com taxas mínimas, se alguma.
+		</p>
+
+		<footer>
+			© 2017 DoesMySiteNeedHTTPS.com. Todos os direitos reservados.
+			<br />Tradução feita com permissão <a href="https://twitter.com/mholt6">do autor</a>
+		</footer>
+		<!--
+		Sites que precisam de HTTPS:
+			- todos eles
+
+
+		If you like it, you better put a lock on it.
+		-->
+	</body>
+</html>
